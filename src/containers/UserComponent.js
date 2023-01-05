@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import { useSelector } from "react-redux";
-const UserComponent = () => {
+const UserComponent = ({id}) => {
   // const users = useSelector((state) => state.allUsers.users||[]);
   // console.log("Data is as follows : ",users.data)
 
@@ -13,8 +13,8 @@ const UserComponent = () => {
   //   );
   // });
   return <> 
-  <div className="four wide column" key={id}>
-  <Link to={`/users/${id}`}>
+  <div className="four wide column" onClick={()=>id.setDetails(id)} key={id}>
+  <a href={`/users/${id}`}>
     <div className="ui link cards">
       <div className="card">
         <div className="content">
@@ -22,8 +22,10 @@ const UserComponent = () => {
         </div>
       </div>
     </div>
-  </Link>
+  </a>
 </div>
+
+
 </>;
 };
 

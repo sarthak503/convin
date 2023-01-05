@@ -6,8 +6,9 @@ import {
   selectedUser,
   removeSelectedUser,
 } from "../redux/actions/usersActions";
-const UserDetails = () => {
-  const { userId } = useParams();
+const UserDetails = ({details}) => {
+  const userId  = window.location.pathname.slice(-1)
+
   let user = useSelector((state) => state.user);
   // const { id, email,first_name,last_name, avatar} = user;
   const userData= user.data;
