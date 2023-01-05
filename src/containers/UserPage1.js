@@ -3,24 +3,28 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setUsers } from "../redux/actions/usersActions";
 import UserComponent from "./UserComponent";
-
-const UserPage = () => {
+import Pagination from "./Pagination";
+let currentPage=0;
+const UserPage = ({page}) => {
+ 
   const users = useSelector((state) => state.allUsers.users);
+
   const dispatch = useDispatch();
   const fetchUsers = async () => {
+    console.log("Page ?? :",page)
+    if(page){
     const response = await axios
-      .get("https://reqres.in/api/users")
+      .get(`https://reqres.in/api/users?page=${page}`)
       .catch((err) => {
         console.log("Err: ", err);
       })
-      .then (dispatch(setUsers(response.data)));
-  };
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  console.log("Users :", users);
+      dispatch(setUsers(response.data))
+    }
+    };
+    useEffect(() => {
+      fetchUsers();
+    }, []);
+  
   return (
     <div className="ui grid container">
       <UserComponent />

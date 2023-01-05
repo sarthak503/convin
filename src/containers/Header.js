@@ -1,17 +1,14 @@
 import React from "react";
-const Header = () => {
+import { Header } from 'semantic-ui-react'
+const Head = () => {
   return (
 
-      <div className="ui fixed menu">
-      <div className="ui container center">
-        <h2>Convin</h2>
-      </div>
-      
-  
-    </div>
+    <Header as='h3' block>
+    Convin
+    </Header>
     
 
   );
 };
 
-export default Header;
+export default Head;
