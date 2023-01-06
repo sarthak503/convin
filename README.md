@@ -2,7 +2,7 @@
 This project uses API call and displays cards in desired format.
 
 ## Deployed 
-Open [https://convins-sarthak.surge.sh/](Convin) to test it.
+Open [Convin](https://convins-sarthak.surge.sh/) to test it.
 
 ## Available Scripts
 
