@@ -1,6 +1,9 @@
 # Convin
 This project uses API call and displays cards in desired format.
 
+## Deployed 
+Open [https://convins-sarthak.surge.sh/](Convin) to test it.
+
 ## Available Scripts
 
 In the project directory, you can run:
