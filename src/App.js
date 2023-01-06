@@ -1,22 +1,19 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import UserPage1 from "./containers/UserPage1";
-import UserPage2 from "./containers/UserPage2";
+import { useNavigate, Routes, Route } from "react-router-dom";
+import UserPage1 from "./containers/UserPage";
 import Header from "./containers/Header";
 import "./App.css";
 import UserDetails from "./containers/UserDetails";
-import Button from "./containers/Button";
 import PaginatedItems from "./containers/Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { setUsers } from "../src/redux/actions/usersActions";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 function App() {
   // let pageNum;
   const dispatch = useDispatch();
-  const [page, setPage]=useState(0);
+  const [page, setPage]=useState(2);
   const[details,setDetails]=useState(null);
-  const { id } = useParams();
+
   // const fetchUsers = async () => {
   //   console.log("Page ?? :",page)
  
@@ -37,18 +34,21 @@ function App() {
     console.log("hi", data.selected+1);
     
   };
-  console.log("details:",id)
+
   return (
     <div className="App">
+
       <>
       <Header/>
 
       <UserPage1 setDetails={setDetails} page={page}/>
+      {/* {console.log("detail",details)} */}
       {/* {
-        id!==undefined?<UserDetails details={id}/>:null
+        details!==null?<UserDetails details={details}/>:"Click on Page no. s"
       } */}
       <UserDetails/>
       <PaginatedItems handlePageClick={handlePageClick}/>
+     
       {/* {
         page===1?(<UserPage1/>):<UserPage2/>
         
@@ -64,7 +64,8 @@ function App() {
           <Route>404 Not Found!</Route>
         </Routes> 
       </Router>  */}
-
+  
+  
 
 
 

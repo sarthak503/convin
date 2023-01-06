@@ -1,7 +1,11 @@
 import React from 'react'
 import ReactPaginate from "react-paginate";
+import '../containers/style.css'
 
 const Pagination = ({handlePageClick}) => (
+
+    
+    
     <div className='place'>
       <div className='btn'>
 
@@ -9,7 +13,9 @@ const Pagination = ({handlePageClick}) => (
             Pages : 
         </h3>
       </div>
- 
+      <div>
+
+  </div>
       <ReactPaginate
         previousLabel={"<"}
         nextLabel={">"}

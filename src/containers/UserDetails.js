@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useRoutes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+
+import { Link } from "react-router-dom";
+import { Button } from "semantic-ui-react";
 import {
   selectedUser,
   removeSelectedUser,
 } from "../redux/actions/usersActions";
-const UserDetails = ({details}) => {
+const UserDetails = () => {
   const userId  = window.location.pathname.slice(-1)
-
+  
   let user = useSelector((state) => state.user);
   // const { id, email,first_name,last_name, avatar} = user;
   const userData= user.data;
@@ -30,9 +33,10 @@ const UserDetails = ({details}) => {
     };
   }, [userId]);
   return (
+   <>
     <div className="ui grid container">
       {Object.keys(user).length === 0 ? (
-        <div>...Loading</div>
+        <div>Check the page button </div>
       ) : (
         <div className="ui link cards">
             <div className="card">
@@ -45,8 +49,17 @@ const UserDetails = ({details}) => {
               </div>
             </div>
           </div>
+
       )}
+
     </div>
+    <div className="place">
+      <Button className="ui primary button btn" onClick={()=>{window.open('/','_self')}}>
+        Back
+      </Button>
+    </div>
+
+   </>
   );
 };
 

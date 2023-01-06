@@ -1,11 +1,11 @@
 .btn{
-   padding: 2rem;
+   
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .place{
-    margin-top: 20rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
